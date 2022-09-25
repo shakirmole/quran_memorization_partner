@@ -1,0 +1,34 @@
+.clear-right {
+	clear:right;
+}
+
+.smallinput {
+	width: 60px !important;
+}
+
+.pointer {
+	cursor: pointer;
+}
+
+.no-underline {
+	text-decoration: none !important;
+}
+
+label {
+	display:inline-block;
+	min-width:100px;
+	line-height:1.5em;
+	vertical-align:middle;
+}
+
+#sidebar {
+	border-left:1px solid #C0c0c0;
+	padding-left:10px
+}
+
+.afitb {
+	display: inline-block;
+	width:100px;
+	border: 0;
+	border-bottom: 2px solid black;
+}

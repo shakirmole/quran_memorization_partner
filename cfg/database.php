@@ -1,0 +1,1 @@
+<?php	$config = array(		'server' => '',		'username' => '',		'password' => '',		'database' => 'cfg/quran.sqlite',	);	define('REPORT_PATH', 'files/');?>
