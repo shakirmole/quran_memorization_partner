@@ -5,6 +5,12 @@
 			<button id="" class="button bg-indigo fg-white" onclick="resetPage()">Reset</button>
 			<button id="" class="button bg-green fg-white" onclick="startSet()">Start</button>
 		</div>
+		<label class="input-control checkbox">
+			<input type="checkbox" value="1" name="hide_name" onclick="toggleSuraNameDisplay()">
+			<span class="check"></span>
+			<span class="caption">Hide Sura Name</span>
+		</label>
+
 	</div>
 </div>
 <div class="row cells10">
@@ -45,12 +51,14 @@
 			</span>
 		</label>
 		<? } ?>
+		
 	</div>
 </div>
 
 <div class="place-right">	
 	<button id="nextbtn" class="no-display button bg-green fg-white" onclick="nextVerse()">Next</button>
 	<button id="refreshbtn" class="no-display button bg-darkCobalt fg-white" onclick="startSet()">Refresh</button>
+	<label class="input-control checkbox">
 </div>
 <h3 id="suraname"></h3>
 <div id="content" class="align-right sub-header padding20 clear-both" style="font-size:2em;clear:both !important">
@@ -126,5 +134,14 @@
 	function renameSura(csura) {
 		if (!sura || sura != csura) sura = 'Sura '+verses[curno].sura+' ('+verses[curno].sno+')'
 		$('#suraname').html(sura);
+	}
+	
+	function toggleSuraNameDisplay() {
+		var hideName = $('input[name=hide_name]:checked').val();
+		if (hideName){
+			$('#suraname').hide();
+		} else {
+			$('#suraname').show();
+		}
 	}
 </script>

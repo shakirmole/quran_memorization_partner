@@ -21,13 +21,19 @@
 			<span class="check"></span>
 			<span class="caption">Random</span>
 		</label>
+		<label class="input-control checkbox">
+			<input type="checkbox" value="1" name="hide_name" onclick="toggleSuraNameDisplay()">
+			<span class="check"></span>
+			<span class="caption">Hide Sura Name</span>
+		</label>
 		<h1 id="juzname">Select a Juz</h1>
 		<div class="place-right">	
 			<button id="nextbtn" class="no-display button bg-green fg-white" onclick="nextVerse()">Next</button> &nbsp;
 			<button id="refreshbtn" class="no-display button bg-darkCobalt fg-white" onclick="reselectJuz()">Refresh</button>
 		</div>
+		<div id="sura-name" class="align-right sub-header" style="font-size:2em; padding-top:10px; clear:both !important">
+		</div>
 		<div id="content" class="align-right sub-header padding20" style="font-size:2em;clear:both !important">
-			
 		</div>
 	</div>
 </div>
@@ -75,7 +81,8 @@
 			
 			sura = verses[curno].sura;
 			
-			$('#content').html(verses[curno].sura+' ('+verses[curno].sno+') '+'<br><br>');
+			$('#sura-name').html(verses[curno].sura+' ('+verses[curno].sno+') '+'<br><br>');
+			$('#content').html('');
 			$('#content').prepend(verses[curno].vno+' - '+verses[curno].text+'<br><br>');
 			$('#nextbtn,#refreshbtn').removeClass('no-display');
 		})
@@ -94,6 +101,15 @@
 		if (curno+1 >= verses.length) {
 			$('#nextbtn').addClass('no-display');
 			$('#content').prepend('End of Juz<br><br>');
+		}
+	}
+	
+	function toggleSuraNameDisplay() {
+		var hideName = $('input[name=hide_name]:checked').val();
+		if (hideName){
+			$('#sura-name').hide();
+		} else {
+			$('#sura-name').show();
 		}
 	}
 </script>
